@@ -1,0 +1,17 @@
+---
+version: "3"
+volumes:
+        myapp:
+services:
+        docer_prod:
+                volumes:
+                        - myapp:/myapp/target/
+                build: docker_prod/
+        docker_web:
+                volumes:
+                        - myapp:/usr/local/tomcat/webapps/
+                build: docker_web/
+                command: "/usr/local/tomcat/bin/catalina.sh run"
+                ports:
+                        - "8080:8080"
+
