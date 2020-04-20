@@ -10,7 +10,7 @@ services:
         docker_web:
                 volumes:
                         - myapp:/usr/local/tomcat/webapps/
-                image: tomcat:latest
+                build: docker_web/
                 command: "/usr/local/tomcat/bin/catalina.sh run"
                 ports:
                         - "8080:8080"
